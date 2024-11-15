@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val videoView: VideoView = findViewById(R.id.videoView)
-        val videoUri: Uri = Uri.parse("android.resource://$packageName/raw/video2")
+        val videoUri: Uri = Uri.parse("android.resource://$packageName/raw/video")
         videoView.setVideoURI(videoUri)
         videoView.start()  // Reproduce el video en la vista de video
 
