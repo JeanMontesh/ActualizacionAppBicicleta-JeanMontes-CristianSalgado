@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">TIendaBici</string>
+
+    <!-- Login -->
+    <string name="txtLogin">Login usuario</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="tvRegistrar">Registrarme</string>
+    <string name="etEmail">Email</string>
+    <string name="etPasword">Contraseña</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
+    <!-- OLD -->
+    <string name="logout_button">Cerrar sesión</string>
+    <string name="home_title">Bienvenido a TiendaBici</string>
+    <string name="bicycles">Bicicletas</string>
+    <string name="accessories">Accesorios</string>
+
+    <string name="txtHome">Bienvenido a la Tienda</string>
+    <string name="product1">Producto 1</string>
+    <string name="product2">Producto 2</string>
+    <string name="product3">Producto 3</string>
+    <string name="product4">Producto 4</string>
+
+    String[] tiposBici = {"Montaña", "Carretera", "Eléctrica", "BMX"};
+
+    <string-array name="tipo_bicicleta">
+        <item>Montaña</item>
+        <item>Ruta</item>
+        <item>Híbrida</item>
+    </string-array>
+
+
+</resources>

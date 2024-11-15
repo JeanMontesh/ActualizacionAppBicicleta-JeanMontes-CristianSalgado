@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F3E5F5">
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Formulario de Ingreso de Bicicletas"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Campos de entrada -->
+    <EditText
+        android:id="@+id/input_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el ID de la Bicicleta"
+        android:inputType="number" />
+
+    <!-- Campo de entrada para el Nombre de la Bicicleta -->
+    <EditText
+        android:id="@+id/input_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el Nombre de la Bicicleta"
+        android:inputType="text" />
+
+    <!-- Campo de entrada para el Precio de la Bicicleta -->
+    <EditText
+        android:id="@+id/input_precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el Precio"
+        android:inputType="numberDecimal" />
+
+    <!-- Spinner para seleccionar el tipo de bicicleta -->
+    <Spinner
+        android:id="@+id/spinner_tipo_bici"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <!-- Contenedor para los botones (dos filas) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <!-- Primera fila de botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_agregar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AGREGAR"
+                android:textSize="12sp"
+                android:backgroundTint="#75e91a"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_eliminar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ELIMINAR"
+                android:textSize="12sp"
+                android:backgroundTint="#e9461a"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+
+        <!-- Segunda fila de botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_modificar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MODIFICAR"
+                android:textSize="12sp"
+                android:backgroundTint="#ee8419"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Lista de bicicletas -->
+    <ListView
+        android:id="@+id/lista_bicicletas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:divider="#BDBDBD"
+        android:dividerHeight="1dp" />
+</LinearLayout>

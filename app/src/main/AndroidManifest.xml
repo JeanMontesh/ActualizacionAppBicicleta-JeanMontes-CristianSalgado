@@ -1,0 +1,40 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.tiendabici">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TIendaBici"
+        tools:targetApi="31">
+
+        <!-- La actividad TiendaCRUDActivity registrada correctamente -->
+        <activity
+            android:name=".TiendaCRUDActivity"
+            android:exported="true"> <!-- Cambié a true para poder acceder a la actividad -->
+            <!-- Si esta actividad tiene un filtro de intención (intent-filter), debe ser exportada -->
+        </activity>
+
+        <!-- La actividad de Login es la que se lanza al iniciar la app -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- La actividad HomeActivity -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" /> <!-- No se exporta si no tiene filtro de intención -->
+
+    </application>
+
+</manifest>
