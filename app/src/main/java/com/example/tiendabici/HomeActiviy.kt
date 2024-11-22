@@ -5,7 +5,6 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -16,28 +15,41 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Botón para cerrar sesión
         val btnCerrarSesion: Button = findViewById(R.id.btnCerrarSesion)
         btnCerrarSesion.setOnClickListener {
             finish()  // Finaliza la actividad y cierra la sesión
         }
 
+        // Botón para acceder a la actividad de CRUD de la tienda
         val btnCrud: Button = findViewById(R.id.btnTiendaCRUD)
         btnCrud.setOnClickListener {
             val intent = Intent(this, TiendaCRUDActivity::class.java)
             startActivity(intent)  // Abre la actividad de CRUD de la tienda
         }
 
-        val videoView: VideoView = findViewById(R.id.videoView)
-        val videoUri: Uri = Uri.parse("android.resource://$packageName/raw/video")
-        videoView.setVideoURI(videoUri)
-        videoView.start()  // Reproduce el video en la vista de video
-
+        // Botón para abrir un enlace en el navegador
         val btnAbrirEnlace: Button = findViewById(R.id.btnAbrirEnlace)
         btnAbrirEnlace.setOnClickListener {
             val url = "https://flowco.cl/"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)  // Abre el enlace en el navegador predeterminado
         }
+
+        // Botón para ver las sucursales y abrir la actividad SucursalesActivity
+        val btnVerSucursales: Button = findViewById(R.id.btnVerSucursales)
+        btnVerSucursales.setOnClickListener {
+            val intent = Intent(this, SucursalesActivity::class.java)
+            startActivity(intent)  // Abre la actividad de Sucursales
+        }
+
+        // Botón para ir al catálogo de productos (nueva adición)
+        val btnVerCatalogo: Button = findViewById(R.id.btnVerCatalogo)
+        btnVerCatalogo.setOnClickListener {
+            val intent = Intent(this, CatalogoActivity::class.java)
+            startActivity(intent)  // Abre la actividad del catálogo
+        }
+
 
         // Inicializa el MediaPlayer para reproducir un sonido
         mediaPlayer = MediaPlayer.create(this, R.raw.sonido3)
@@ -62,17 +74,5 @@ class HomeActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer.release()  // Libera recursos del MediaPlayer cuando la actividad se destruye
-    }
-
-    // Sobrescribir el comportamiento del botón de retroceso
-    override fun onBackPressed() {
-        // No cerramos la actividad si venimos de un Intent con el navegador
-        val intent = Intent(Intent.ACTION_MAIN)
-        val currentActivity = this::class.java.simpleName
-
-        // Si el Activity es el principal y el back es presionado, podemos cerrarlo
-        if (currentActivity == "HomeActivity") {
-            super.onBackPressed()  // Llamar al back normal si estamos en Home
-        }
     }
 }

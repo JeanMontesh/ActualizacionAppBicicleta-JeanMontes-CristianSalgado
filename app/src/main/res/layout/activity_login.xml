@@ -50,7 +50,7 @@
             app:passwordToggleEnabled="true">
             <EditText
                 android:id="@+id/etPasword"
-                android:hint="@string/etPasword"
+                android:hint="@string/etPassword"
                 android:inputType="textPassword"
                 android:drawableStart="@drawable/baseline_lock_24"
                 android:drawablePadding="5dp"

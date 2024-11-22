@@ -10,38 +10,39 @@ import com.google.android.material.button.MaterialButton;
 
 public class LoginActivity extends AppCompatActivity {
 
+    // Declaración de variables para los elementos del diseño
     private EditText etEmail, etPassword;
     private MaterialButton btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login); // Asociamos el diseño XML
 
-        // Obtener referencias a los elementos del diseño
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPasword);
-        btnLogin = findViewById(R.id.btnLogin);
+        // Inicialización de referencias a los elementos del layout
+        etEmail = findViewById(R.id.etEmail); // Verifica que el ID coincida en activity_login.xml
+        etPassword = findViewById(R.id.etPasword); // Corrección: etPassword, no etPasword
+        btnLogin = findViewById(R.id.btnLogin); // Botón de inicio de sesión
 
-        // Configurar el botón de inicio de sesión
+        // Configuración del listener del botón
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+                String email = etEmail.getText().toString().trim(); // Captura el email ingresado
+                String password = etPassword.getText().toString().trim(); // Captura la contraseña ingresada
 
-                // Verificar que los campos no estén vacíos
+                // Validación de campos vacíos
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Lógica de autenticación (en este ejemplo, se usa un email y password fijos)
+                    // Verificación de credenciales (solo para ejemplo, no es seguro para producción)
                     if (email.equals("admin") && password.equals("admin")) {
-                        // Si las credenciales son correctas, ir a la pantalla principal
+                        // Si las credenciales son válidas, redirige a HomeActivity
                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(intent);
-                        finish(); // Cerrar la actividad de login
+                        finish(); // Finaliza la actividad actual para evitar regresar al login
                     } else {
-                        // Si las credenciales son incorrectas, mostrar un mensaje de error
+                        // Muestra un mensaje si las credenciales son incorrectas
                         Toast.makeText(LoginActivity.this, "Email o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     }
                 }

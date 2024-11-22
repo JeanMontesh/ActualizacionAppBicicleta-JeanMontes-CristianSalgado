@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.tiendabici">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permisos para acceder a la ubicación del dispositivo (necesarios para mapas o servicios basados en ubicación) -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -34,6 +38,15 @@
         <activity
             android:name=".HomeActivity"
             android:exported="false" /> <!-- No se exporta si no tiene filtro de intención -->
+
+        <!-- Sucursales -->
+        <activity
+            android:name=".SucursalesActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".CatalogoActivity"
+            android:exported="true" />
 
     </application>
 
